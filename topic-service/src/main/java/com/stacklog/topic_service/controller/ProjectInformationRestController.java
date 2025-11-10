@@ -60,5 +60,14 @@ public class ProjectInformationRestController {
         }
         return ResponseEntity.ok().body("Delete success");
     }
+     @update("/{piId}")
+    public ResponseEntity<String> removeProjectInformation(@RequestHeader("Authorization") String token,
+            @PathVariable(name = "piId", required = false) String piId) {
+        ProjectInformation pi = projectInformationService.delete(piId, token);
+        if (pi == null) {
+            return ResponseEntity.badRequest().body("Delete failed");
+        }
+        return ResponseEntity.ok().body("Delete success");
+    }
 
 }
