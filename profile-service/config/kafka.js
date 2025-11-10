@@ -36,4 +36,4 @@ const initConsumer = async () => {
 
 
 module.exports = { produceMessage, initConsumer };
-     
+      
