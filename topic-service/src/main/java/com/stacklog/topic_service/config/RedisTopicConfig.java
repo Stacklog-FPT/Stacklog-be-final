@@ -26,4 +26,12 @@ public class RedisTopicConfig {
         return new RedisService<>(ProjectInformation.class, jwtDecoder, ProjectInformation::getPiId);
     }
 
+
+    @Bean
+    public RedisService<ProjectInformation> redisProjectInformationService(
+            RedisTemplate<String, String> redisTemplate,
+            ObjectMapper objectMapper,
+            JwtDecoder jwtDecoder) {
+        return new RedisService<>(ProjectInformation.class, jwtDecoder, ProjectInformation::getPiId);
+    }
 }
