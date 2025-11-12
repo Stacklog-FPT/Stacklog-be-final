@@ -37,6 +37,8 @@ public class ProjectInformation extends CoreEntity {
     private String piApprovedAt;
     private Boolean isAllowEdit;
     private String groupId;
+    private String groupName ;
+    
 
     private List<String> piDocumentIds;
 

@@ -121,13 +121,7 @@ public class RedisTopicConfig {
         return new LettuceConnectionFactory("redis", 6379);
     }
 
-    @Bean
-    public RedisService<ProjectInformation> redisProjectInformationService(
-            RedisTemplate<String, String> redisTemplate,
-            ObjectMapper objectMapper,
-            JwtDecoder jwtDecoder) {
-        return new RedisService<>(ProjectInformation.class, jwtDecoder, ProjectInformation::getPiId);
-    }
+    
 
 } 
           
