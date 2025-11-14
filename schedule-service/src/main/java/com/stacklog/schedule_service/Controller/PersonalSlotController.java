@@ -1416,6 +1416,69 @@ public class PersonalSlotController {
     }
 
 }
+
+@RestController
+@RequestMapping(value = "/personal")
+public class PersonalSlotController {
+
+    @Autowired
+    SlotService slotService;
+
+    @GetMapping("")
+    public ResponseEntity<List<Slot>> getPersonalSlots(
+            @RequestParam(name = "semesterId", required = false) String semesterId,
+            @RequestHeader("Authorization") String token) {
+        List<Slot> personalSlotList = slotService.getAllBySemesterId(semesterId, token);
+        return ResponseEntity.ok().body(personalSlotList);
+    }
+
+}
+@RestController
+@RequestMapping(value = "/personal")
+public class PersonalSlotController {
+
+    @Autowired
+    SlotService slotService;
+
+    @GetMapping("")
+    public ResponseEntity<List<Slot>> getPersonalSlots(
+            @RequestParam(name = "semesterId", required = false) String semesterId,
+            @RequestHeader("Authorization") String token) {
+        List<Slot> personalSlotList = slotService.getAllBySemesterId(semesterId, token);
+        return ResponseEntity.ok().body(personalSlotList);
+    }
+
+}@RestController
+@RequestMapping(value = "/personal")
+public class PersonalSlotController {
+
+    @Autowired
+    SlotService slotService;
+
+    @GetMapping("")
+    public ResponseEntity<List<Slot>> getPersonalSlots(
+            @RequestParam(name = "semesterId", required = false) String semesterId,
+            @RequestHeader("Authorization") String token) {
+        List<Slot> personalSlotList = slotService.getAllBySemesterId(semesterId, token);
+        return ResponseEntity.ok().body(personalSlotList);
+    }
+
+}@RestController
+@RequestMapping(value = "/personal")
+public class PersonalSlotController {
+
+    @Autowired
+    SlotService slotService;
+
+    @GetMapping("")
+    public ResponseEntity<List<Slot>> getPersonalSlots(
+            @RequestParam(name = "semesterId", required = false) String semesterId,
+            @RequestHeader("Authorization") String token) {
+        List<Slot> personalSlotList = slotService.getAllBySemesterId(semesterId, token);
+        return ResponseEntity.ok().body(personalSlotList);
+    }
+
+}
 package com.stacklog.schedule_service.controller;
 
 import java.util.List;
