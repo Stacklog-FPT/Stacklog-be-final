@@ -14,6 +14,7 @@ import com.stacklog.topic_service.model.entities.ProjectInformation;
 public interface ProjectInformationRepo extends JpaRepository<ProjectInformation, String> {
 
     Optional<ProjectInformation> findByGroupId(String groupId);
+    Optional<ProjectInformation> findbygroupNamw ( String groupName) ; 
 
     @Query("""
             select distinct pi
@@ -21,5 +22,12 @@ public interface ProjectInformationRepo extends JpaRepository<ProjectInformation
             WHERE pi.groupId in :groupIds
             """)
     List<ProjectInformation> findAllByGroupIds(@Param("groupIds") List<String> groupIds);
+
+    @Query("""
+            select distinct pi
+            from ProjectInformation pi
+            WHERE pi.groupName in : groupName
+            """)
+    List<ProjectInformation> findAllByGroupName(@Param("GgroupName") List<String> groupName);
 
 }

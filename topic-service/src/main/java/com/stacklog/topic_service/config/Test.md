@@ -113,5 +113,15 @@ public class RedisTopicConfig {
         return new RedisService<>(ProjectInformation.class, jwtDecoder, ProjectInformation::getPiId);
     }
 
+    Configuration
+public class RedisTopicConfig {
+
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory("redis", 6379);
+    }
+
+    
+
 } 
           

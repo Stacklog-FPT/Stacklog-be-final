@@ -23,4 +23,6 @@ class Groupss {
 
     public String getGroupsId() { return groupsId; }
     public void setGroupsId(String groupsId) { this.groupsId = groupsId; }
+    public String getGroupsId() { return groupsId; }
+    public void setGroupsId(String groupsId) { this.groupsId = groupsId; }
 }
