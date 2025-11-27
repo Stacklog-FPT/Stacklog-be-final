@@ -118,3 +118,82 @@ public class RedisSlotConfig {
     }
 
 }
+@Configuration
+public class RedisSlotConfig {
+    
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory("redis", 6379);
+    }
+
+    @Bean
+    public RedisService<Slot> redisSlotService(
+            RedisTemplate<String, String> redisTemplate,
+            ObjectMapper objectMapper,
+            JwtDecoder jwtDecoder
+    ) {
+        return new RedisService<>(Slot.class, jwtDecoder, Slot::getSlotId);
+    }
+
+    @Bean
+    public RedisService<SlotAssign> redisSlotAssignService(
+            RedisTemplate<String, String> redisTemplate,
+            ObjectMapper objectMapper,
+            JwtDecoder jwtDecoder
+    ) {
+        return new RedisService<>(SlotAssign.class, jwtDecoder, SlotAssign::getSlotAssignId);
+    }
+
+}@Configuration
+public class RedisSlotConfig {
+    
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory("redis", 6379);
+    }
+
+    @Bean
+    public RedisService<Slot> redisSlotService(
+            RedisTemplate<String, String> redisTemplate,
+            ObjectMapper objectMapper,
+            JwtDecoder jwtDecoder
+    ) {
+        return new RedisService<>(Slot.class, jwtDecoder, Slot::getSlotId);
+    }
+
+    @Bean
+    public RedisService<SlotAssign> redisSlotAssignService(
+            RedisTemplate<String, String> redisTemplate,
+            ObjectMapper objectMapper,
+            JwtDecoder jwtDecoder
+    ) {
+        return new RedisService<>(SlotAssign.class, jwtDecoder, SlotAssign::getSlotAssignId);
+    }
+
+}@Configuration
+public class RedisSlotConfig {
+    
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory("redis", 6379);
+    }
+
+    @Bean
+    public RedisService<Slot> redisSlotService(
+            RedisTemplate<String, String> redisTemplate,
+            ObjectMapper objectMapper,
+            JwtDecoder jwtDecoder
+    ) {
+        return new RedisService<>(Slot.class, jwtDecoder, Slot::getSlotId);
+    }
+
+    @Bean
+    public RedisService<SlotAssign> redisSlotAssignService(
+            RedisTemplate<String, String> redisTemplate,
+            ObjectMapper objectMapper,
+            JwtDecoder jwtDecoder
+    ) {
+        return new RedisService<>(SlotAssign.class, jwtDecoder, SlotAssign::getSlotAssignId);
+    }
+
+}
