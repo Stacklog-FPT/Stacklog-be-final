@@ -112,49 +112,6 @@ public class ProjectInformationService implements IService<ProjectInformation> {
         throw new UnsupportedOperationException("Unimplemented method 'getById'");
     }
 
-    @Override
-    @Transactional
-    public ProjectInformation save(ProjectInformation e, String token) {
-        boolean isCreate = (e.getPiId() == null || !piRepo.existsById(e.getPiId()));
-
-        e = saveToDB(e, token, isCreate);
-
-        entityManager.flush();
-        entityManager.clear();
-
-        ProjectInformation pi = new ProjectInformation();
-
-        pi = piRepo.findById(e.getPiId()).orElse(null);
-
-        // Cập nhật cache index tổng theo user
-        redisPIService.saveToRedis(pi, token, NAME_SERVICE);
-
-        // Nếu có group → cập nhật index theo group
-        if (e.getGroupId() != null) {
-            String suffix = GROUP_SUFFIX_PREFIX + pi.getGroupId();
-            redisPIService.saveToRedisWithSuffix(pi, token, NAME_SERVICE, suffix);
-        }
-
-        kafkaProjectInformationProducer.sendMessage(pi, isCreate ? KAFKA_TOPIC_CREATE : KAFKA_TOPIC_UPDATE);
-        messagingTemplate.convertAndSend("/topic/topic-service", pi);
-        return pi;
-    }
-
-    @Transactional
-    private ProjectInformation saveToDB(ProjectInformation e, String token, boolean isCreate) {
-        LocalDateTime now = CommonFunction.getCurrentTime();
-        String currentUserId = redisPIService.getCurrentUserId(token);
-
-        e.setUpdateAt(now);
-        e.setUpdateBy(currentUserId);
-        if (isCreate) {
-            e.setCreatedAt(now);
-            e.setCreatedBy(currentUserId);
-            e.setPiId(UUID.randomUUID().toString());
-        }
-
-        e.setPiId(piRepo.save(e).getPiId());
-        return e;
-    }
+   
 
 }
