@@ -25,6 +25,72 @@ const login = async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
+    // Đăng nhập người dùng
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user || !(await user.matchPassword(password))) {
+
+      return res.status(401).json({ message: "Invalid credentials" });
+    }// Đăng nhập người dùng
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user || !(await user.matchPassword(password))) {
+
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+    // Đăng nhập người dùng
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user || !(await user.matchPassword(password))) {
+
+      return res.status(401).json({ message: "Invalid credentials" });
+    }// Đăng nhập người dùng
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user || !(await user.matchPassword(password))) {
+
+      return res.status(401).json({ message: "Invalid credentials" });
+    }// Đăng nhập người dùng
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user || !(await user.matchPassword(password))) {
+
+      return res.status(401).json({ message: "Invalid credentials" });
+    }// Đăng nhập người dùng
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user || !(await user.matchPassword(password))) {
+
+      return res.status(401).json({ message: "Invalid credentials" });
+    }// Đăng nhập người dùng
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user || !(await user.matchPassword(password))) {
+
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
     const token = generateToken(user);
 
     // Lưu token vào Redis với TTL 1 ngày
